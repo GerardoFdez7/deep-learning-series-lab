@@ -1,0 +1,3 @@
+series_name,best_family,params,MAE,RMSE,MAPE
+via_aerea,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",27670.068886009496,32993.00478102472,27.46362384123257
+total_viajeros,lstm_simple,"{'window': 12, 'units': 64, 'dropout': 0.2, 'lr': 0.0005, 'batch_size': 16}",94360.37762246968,105226.82356328065,39.069866805096645

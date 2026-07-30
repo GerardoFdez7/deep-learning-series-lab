@@ -1,0 +1,13 @@
+series_name,family,window,units,dropout,lr,batch_size,val_loss
+total_viajeros,lstm_simple,12,64,0.2,0.0005,16,0.23730313777923584
+total_viajeros,lstm_simple,12,32,0.2,0.001,16,0.23794794082641602
+total_viajeros,lstm_simple,6,32,0.0,0.001,16,0.2605486810207367
+total_viajeros,lstm_stacked,12,32,0.2,0.001,16,0.2709575593471527
+total_viajeros,lstm_stacked,6,32,0.2,0.001,16,0.2762647569179535
+total_viajeros,lstm_stacked,12,64,0.3,0.0005,32,0.29121294617652893
+via_aerea,lstm_simple,6,32,0.0,0.001,16,0.2420397400856018
+via_aerea,lstm_simple,12,32,0.2,0.001,16,0.25075507164001465
+via_aerea,lstm_stacked,6,32,0.2,0.001,16,0.25839123129844666
+via_aerea,lstm_stacked,12,32,0.2,0.001,16,0.3126014471054077
+via_aerea,lstm_stacked,12,64,0.3,0.0005,32,0.3236589729785919
+via_aerea,lstm_simple,12,64,0.2,0.0005,16,0.35691240429878235
