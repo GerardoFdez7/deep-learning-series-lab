@@ -174,7 +174,8 @@ def tune_and_train_for_series(
             print(f"  Params {params} -> best val_loss={best_val:.6f}")
 
     if not trial_results:
-        raise RuntimeError(f"No successful trials for series {series_name}.")
+        print(f"Warning: No successful trials for series {series_name}. Skipping.")
+        return [], None
 
     best_trial = min(trial_results, key=lambda t: t.val_loss)
     best_params = {
@@ -289,9 +290,10 @@ def run(output_dir: Path, series_to_model: list[str] | None = None, max_epochs: 
             max_epochs=max_epochs,
             patience=PATIENCE,
         )
-        all_trials.extend(trials)
-        best_results.append(best)
-        _save_forecast_figure(best, output_dir)
+        if best is not None:
+            all_trials.extend(trials)
+            best_results.append(best)
+            _save_forecast_figure(best, output_dir)
 
     _save_trials(all_trials, output_dir)
     _save_best_summary(best_results, output_dir)
