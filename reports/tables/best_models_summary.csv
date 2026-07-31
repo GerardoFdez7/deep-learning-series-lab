@@ -1,3 +1,8 @@
 series_name,best_family,params,MAE,RMSE,MAPE
-via_aerea,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",27670.068886009496,32993.00478102472,27.46362384123257
-total_viajeros,lstm_simple,"{'window': 12, 'units': 64, 'dropout': 0.2, 'lr': 0.0005, 'batch_size': 16}",94360.37762246968,105226.82356328065,39.069866805096645
+via_maritima,lstm_stacked,"{'window': 12, 'units': 64, 'dropout': 0.3, 'lr': 0.0005, 'batch_size': 32}",1853.0120442708333,2047.4953204382862,37534.652032386446
+tipo_viajero,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",11381.053516985938,19207.53743747534,30.398801894962446
+tipo_excursionista,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",12620.724599755631,15660.787806343295,67.04090335506068
+via_aerea,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",16655.156745632514,20063.324952432984,19.36525861019107
+total_viajeros,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",42433.01303828073,50749.9649601616,21.827809919443077
+via_terrestre,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",43906.55898132867,54742.453102403444,38.938371756519494
+tipo_turista,lstm_simple,"{'window': 6, 'units': 32, 'dropout': 0.0, 'lr': 0.001, 'batch_size': 16}",50387.08249448367,59826.02974744707,27.938291059012293

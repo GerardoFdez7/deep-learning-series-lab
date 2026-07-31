@@ -129,27 +129,28 @@ def _aggregate_monthly(df: pd.DataFrame, mask: pd.Series | None = None) -> pd.Se
 
 def build_selected_series(df: pd.DataFrame) -> dict[str, pd.Series]:
     if "tipo_viajero" not in df.columns:
-        raise KeyError("Column 'tipo_viajero' is required for total_viajeros.")
+        raise KeyError("Column 'tipo_viajero' is required.")
+        
+    tipo_normalized = df["tipo_viajero"].map(_normalize_text)
 
-    total_mask = df["tipo_viajero"].map(_normalize_text).isin(TIPOS_CONSISTENTES)
+    total_mask = tipo_normalized.isin(TIPOS_CONSISTENTES)
     total_series = _aggregate_monthly(df, total_mask)
 
     if "via" not in df.columns:
-        raise KeyError("Column 'via' is required for via_aerea.")
+        raise KeyError("Column 'via' is required.")
 
     via_normalized = df["via"].map(_normalize_text)
-    via_mask = via_normalized.str.contains("aer", na=False)
-    via_aerea_series = _aggregate_monthly(df, via_mask)
-
-    if via_aerea_series.sum() == 0:
-        available_vias = sorted(via_normalized.dropna().unique().tolist())
-        raise ValueError(
-            "Series 'via_aerea' is empty after filtering column 'via'. "
-            "Verify category names in your dataset. "
-            f"Detected normalized categories: {available_vias}"
-        )
-
-    return {
+    
+    series_dict = {
         "total_viajeros": total_series,
-        "via_aerea": via_aerea_series,
+        "via_aerea": _aggregate_monthly(df, via_normalized.str.contains("aer", na=False)),
+        "via_terrestre": _aggregate_monthly(df, via_normalized.str.contains("terr", na=False)),
+        "via_maritima": _aggregate_monthly(df, via_normalized.str.contains("mar", na=False)),
+        "tipo_turista": _aggregate_monthly(df, tipo_normalized == "turista"),
+        "tipo_excursionista": _aggregate_monthly(df, tipo_normalized == "excursionista"),
+        "tipo_crucerista": _aggregate_monthly(df, tipo_normalized == "crucerista"),
+        "tipo_viajero": _aggregate_monthly(df, tipo_normalized == "viajero"),
+        "tipo_visitante": _aggregate_monthly(df, tipo_normalized == "visitante"),
     }
+
+    return series_dict

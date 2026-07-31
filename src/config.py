@@ -13,7 +13,17 @@ TRAIN_RATIO = 0.70
 VALID_RATIO_WITHIN_TRAIN = 0.15
 RANDOM_SEED = 42
 
-SERIES_TO_MODEL = ["total_viajeros", "via_aerea"]
+SERIES_TO_MODEL = [
+    "total_viajeros",
+    "via_aerea",
+    "via_terrestre",
+    "via_maritima",
+    "tipo_turista",
+    "tipo_excursionista",
+    "tipo_crucerista",
+    "tipo_viajero",
+    "tipo_visitante"
+]
 
 MODEL_FAMILIES = {
     "lstm_simple": [
