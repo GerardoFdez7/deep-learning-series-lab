@@ -1,0 +1,3 @@
+series,model,MAE,RMSE,MAPE,MAE_vs_best_pct
+total_viajeros,best_lstm (lstm_simple),42433.01303828073,50749.9649601616,21.82780991944308,0.0
+total_viajeros,catch22_lstm,44065.51398997535,55160.07286246042,20.038124018107688,3.85

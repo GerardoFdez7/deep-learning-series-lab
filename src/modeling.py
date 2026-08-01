@@ -34,10 +34,6 @@ def build_lstm_catch22(
     return model
 
 
-    np.random.seed(seed)
-    tf.random.set_seed(seed)
-
-
 def build_lstm_simple(input_shape: tuple[int, int], units: int, dropout: float, lr: float) -> keras.Model:
     model = keras.Sequential(
         [
